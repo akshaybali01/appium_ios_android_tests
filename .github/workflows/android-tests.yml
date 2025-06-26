@@ -1,46 +1,42 @@
-name: ✅ Android Appium Tests
+name: Android UI Tests with Appium
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   android-tests:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout code
-        uses: actions/checkout@v4
+      - name: 📦 Checkout repo
+        uses: actions/checkout@v3
 
       - name: 🐍 Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      - name: 📦 Install Python dependencies
+      - name: 📦 Install dependencies
         run: |
           pip install -r requirements.txt
-
-      - name: ⚙️ Install Node.js, Appium, and Android driver
-        run: |
-          curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-          sudo apt-get install -y nodejs
           npm install -g appium
           appium driver install uiautomator2
 
-      - name: 📱 Set up Android Emulator
+      - name: 📱 Start Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
-          target: google_apis
+          target: default
           arch: x86_64
-          profile: Nexus 6
           script: |
-            pytest tests/  # Your AppiumService() in code will handle Appium startup
+            appium &
+            sleep 10
+            pytest tests/ --platform=android --alluredir=allure-results
 
-      - name: 📤 Upload Allure results
+      - name: ⬆️ Upload Allure Results
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
