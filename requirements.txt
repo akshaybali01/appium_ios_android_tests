@@ -1,3 +1,6 @@
 appium-python-client
 selenium
 pytest
+pytest-html
+allure-pytest
+pytest-json-report

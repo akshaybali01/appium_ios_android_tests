@@ -1,7 +1,7 @@
 {
   "platformName": "iOS",
   "platformVersion": "18.5",
-  "deviceName": "iPhone 16 Plus",
+  "deviceName": "iPhone 16 Pro",
   "automationName": "XCUITest",
   "app": "/Users/akshaybali/Downloads/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1.app"
 

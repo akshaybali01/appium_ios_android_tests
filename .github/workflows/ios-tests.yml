@@ -1,0 +1,34 @@
+name: Run iOS Tests on GitHub Actions
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ios-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name:  Checkout code
+        uses: actions/checkout@v3
+
+      - name:  Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name:  Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name:  Run iOS Tests (Appium + Allure)
+        run: |
+          pytest tests/ --platform=ios --alluredir=allure-results
+
+      - name:  Upload Allure results
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results
