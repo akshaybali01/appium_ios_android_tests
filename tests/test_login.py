@@ -15,5 +15,5 @@ def test_valid_login(driver,data):
     expected=data["expected"]
     #login_page.login("standard_user", "secret_sauce")
     login_page.login(username,password)
-    assert False ,"Forced failure to test screenshot attachment"
+    #assert False ,"Forced failure to test screenshot attachment"
 
