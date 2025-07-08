@@ -60,6 +60,7 @@ Ensure you have the following installed:
 pip install -r requirements.txt
 ```
 
+
 ## 👨‍💼 About Me
 
 I’m a Senior QA Engineer with experience designing end-to-end mobile automation solutions.  
