@@ -66,7 +66,7 @@ pip install -r requirements.txt
 I’m a Senior QA Engineer with experience designing end-to-end mobile automation solutions.  
 This project reflects my practical skills and hands-on experience with mobile testing frameworks.
 
-📎 [GitHub](https://github.com/akshaybali01)
+📎 [GitHub](https://github.com/akshaybali01/appium_ios_android_tests)
 
 
 ---
