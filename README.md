@@ -58,7 +58,7 @@ Ensure you have the following installed:
 
 ```bash
 pip install -r requirements.txt
-
+```
 
 ## 👨‍💼 About Me
 
